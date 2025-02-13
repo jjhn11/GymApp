@@ -9,13 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView {
+            let exercises: [Exercise] = [
+                Exercise(name: "Curl", category: "Brazo", type: "Pesas"),
+                Exercise(name: "Press", category: "Pecho", type: "Pesas"),
+                Exercise(name: "Remo", category: "Espalda", type: "Maquina")]
+            ExerciseListView(exercises: exercises)
         }
-        .padding()
+        
+        
     }
 }
 
