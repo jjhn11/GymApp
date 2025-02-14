@@ -46,7 +46,7 @@ struct ExerciseDetailView: View {
                 })
                 .sheet(isPresented: $showSheet){
                     } content: {
-                        Text("Hello, World!")
+                        AddView()
                     }
         }
         
