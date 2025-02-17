@@ -14,7 +14,8 @@ struct ContentView: View {
                 Exercise(name: "Curl", category: "Brazo", type: "Pesas"),
                 Exercise(name: "Press", category: "Pecho", type: "Pesas"),
                 Exercise(name: "Remo", category: "Espalda", type: "Maquina")]
-            ExerciseListView(exercises: exercises)
+            let viewModel = ExerciseListViewModel(exercises: exercises)
+            ExerciseListView(viewModel)
         }
         
         

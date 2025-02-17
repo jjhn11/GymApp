@@ -8,22 +8,17 @@
 import SwiftUI
 
 struct ExerciseDetailView: View {
-    var exercise: Exercise
-    @State var showSheet = false
-    let btnAdd: Image = Image(systemName: "plus.circle")
-    
-        
-    
+    @ObservedObject var viewModel: ExerciseDetailViewModel
     
     
     var body: some View {
         VStack(alignment: .center){
-            Text(exercise.name)
+            Text(viewModel.exercise.name)
                 .font(.title)
             VStack(alignment: .trailing){
-                Text(exercise.type)
+                Text(viewModel.exercise.type)
                     .font(.caption)
-                Text(exercise.category)
+                Text(viewModel.exercise.category)
                     .font(.caption)
             }.frame(width: 300)
           
@@ -36,25 +31,25 @@ struct ExerciseDetailView: View {
                 .foregroundStyle(Color.cyan)
                 .cornerRadius(20)
                 .onTapGesture {
-                    showSheet.toggle()
+                    viewModel.showSheet.toggle()
                 }
                 .overlay(content: {
-                    btnAdd
+                    viewModel.btnAdd
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 35, height: 35)
                 })
-                .sheet(isPresented: $showSheet){
+                .sheet(isPresented: $viewModel.showSheet){
                     } content: {
-                        AddView()
+                        AddView(viewModel: AddExerciseViewModel(exercise: viewModel.exercise))
                     }
         }
         
     }
 }
 
-#Preview {
-    
-    ExerciseDetailView(exercise: Exercise(name: "Curl", category: "Brazo", type: "Pesas"))
-    
-}
+//#Preview {
+//    
+//    ExerciseDetailView(exercise: Exercise(name: "Curl", category: "Brazo", type: "Pesas"))
+//    
+//}
