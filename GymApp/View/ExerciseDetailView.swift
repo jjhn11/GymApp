@@ -65,7 +65,7 @@ struct ExerciseDetailView: View {
         }
         .sheet(isPresented: $viewModel.showSheet) {
             AddExerciseDataView(
-                viewModel: AddExerciseViewModel(exercise: viewModel.exercise),
+                viewModel: AddExerciseDataViewModel(exercise: viewModel.exercise),
                 onSave: { updatedExercise in
                     viewModel.updateExercise(updatedExercise)
                 }
