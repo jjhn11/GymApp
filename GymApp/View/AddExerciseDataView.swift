@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddExerciseDataView: View {
-    @ObservedObject var viewModel: AddExerciseViewModel
+    @ObservedObject var viewModel: AddExerciseDataViewModel
     @Environment(\.dismiss) var dismiss
     let onSave: (Exercise) -> Void
     
