@@ -11,17 +11,45 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             let exercises: [Exercise] = [
-                Exercise(name: "Curl", category: "Brazo", type: "Pesas"),
-                Exercise(name: "Press", category: "Pecho", type: "Pesas"),
-                Exercise(name: "Remo", category: "Espalda", type: "Maquina")]
+                Exercise(
+                    name: "Bicep Curl",
+                    category: .strength,
+                    type: .pushPull,
+                    data: []
+                ),
+                Exercise(
+                    name: "Bench Press",
+                    category: .strength,
+                    type: .compound,
+                    data: []
+                ),
+                Exercise(
+                    name: "Pull-ups",
+                    category: .bodyweight,
+                    type: .compound,
+                    data: []
+                ),
+                Exercise(
+                    name: "Running",
+                    category: .cardio,
+                    type: .endurance,
+                    data: []
+                ),
+                Exercise(
+                    name: "Yoga Stretch",
+                    category: .flexibility,
+                    type: .mobility,
+                    data: []
+                )
+            ]
+            
             let viewModel = ExerciseListViewModel(exercises: exercises)
             ExerciseListView(viewModel)
         }
-        
-        
     }
 }
 
+// Preview provider for SwiftUI canvas
 #Preview {
     ContentView()
 }
