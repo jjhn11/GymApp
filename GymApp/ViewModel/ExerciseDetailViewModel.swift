@@ -10,9 +10,12 @@ import SwiftUI
 class ExerciseDetailViewModel: ObservableObject {
     @Published var exercise: Exercise
     @Published var showSheet = false
-    let btnAdd: Image = Image(systemName: "plus.circle")
     
     init(exercise: Exercise) {
         self.exercise = exercise
+    }
+    
+    func updateExercise(_ updatedExercise: Exercise) {
+        self.exercise = updatedExercise
     }
 }
