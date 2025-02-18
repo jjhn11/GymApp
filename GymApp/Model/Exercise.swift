@@ -11,8 +11,8 @@ struct Exercise: Identifiable {
     
     let id: UUID = UUID()
     let name: String
-    let category: String
-    let type: String
+    let category: ExerciseCategory
+    let type: ExerciseType
     var data: [ExerciseData] = []
 }
 
@@ -21,4 +21,20 @@ struct ExerciseData: Identifiable {
     var set: Int
     var reps: Int
     var weight: Int
+}
+
+enum ExerciseCategory: String, Codable, CaseIterable {
+    case strength = "Strength"
+    case cardio = "Cardio"
+    case flexibility = "Flexibility"
+    case bodyweight = "Bodyweight"
+}
+
+enum ExerciseType: String, Codable, CaseIterable {
+    case pushPull = "Push/Pull"
+    case compound = "Compound"
+    case isolation = "Isolation"
+    case hiit = "HIIT"
+    case endurance = "Endurance"
+    case mobility = "Mobility"
 }
